@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+  <title>tic tac toe</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    td{
+        height: 40px;
+        width: 30px;
+        overflow: hidden;
+        text-align: center;
+        border-radius: 10px;
+        padding: 4px;
+        background-image: linear-gradient(#EC459C, #FBD54F);
+        font-weight: bold;
+        font-size: 25px;
+    }
+    p
+    {
+       background-image: linear-gradient(#EC459C, #FBD54F)
+       ;
+       font-size: 50px;
+       text-align: center;
+    }
+    table
+    {
+      border:none;
+      padding: 4px;
+      background-color: #232323;
+      margin-top: 100px;
+
+    }
+  </style>
+</head>
+  <script type="text/javascript">
+    var count=0;
+    function change_color(a)
+    {
+      document.getElementById(a.id).setAttribute("style","background-image: linear-gradient(#FBD54F,#EC459C)")
+    }
+    function color(a)
+    {
+      
+      document.getElementById(a.id).setAttribute("style","background-color : #B8FB3C");
+    }
+    function put_value(a)
+    {
+        var e = document.getElementById(a.id);
+        if(e.innerHTML=='')
+        {
+            if(count%2===0)
+            {
+              count++;
+              e.innerHTML="X";
+              
+            }
+            else
+            {
+              count++;
+              e.innerHTML="O";
+              
+            }
+        }
+        checkWinner(count);
+    }
+    function checkWinner(a)
+    {
+      var j=document.querySelectorAll("td");
+      var para = document.getElementById("p_id");
+
+      if((j[0].innerHTML=="X" && j[1].innerHTML=="X" && j[2].innerHTML=="X") || (j[3].innerHTML=="X" && j[4].innerHTML=="X" && j[5].innerHTML=="X") || (j[6].innerHTML=="X" && j[7].innerHTML=="X" && j[8].innerHTML=="X") || (j[0].innerHTML=="X" && j[3].innerHTML=="X" && j[6].innerHTML=="X") || (j[1].innerHTML=="X" && j[4].innerHTML=="X" && j[7].innerHTML=="X") || (j[2].innerHTML=="X" && j[5].innerHTML=="X" && j[8].innerHTML=="X") || (j[0].innerHTML=="X" && j[4].innerHTML=="X" && j[8].innerHTML=="X") || (j[2].innerHTML=="X" && j[4].innerHTML=="X" && j[6].innerHTML=="X")
+        )
+      {
+          para.innerHTML="Player 1 is a winner"
+      }
+      else if((j[0].innerHTML=="O" && j[1].innerHTML=="O" && j[2].innerHTML=="O")||(j[3].innerHTML=="O"&&j[4].innerHTML=="O" && j[5].innerHTML=="O") || (j[6].innerHTML=="O" && j[7].innerHTML=="O" && j[8].innerHTML=="O") || (j[0].innerHTML=="O" && j[3].innerHTML=="O" && j[6].innerHTML=="O") || (j[1].innerHTML=="O" && j[4].innerHTML=="O" && j[7].innerHTML=="O") || (j[2].innerHTML=="O" && j[5].innerHTML=="O" && j[8].innerHTML=="O") || (j[0].innerHTML=="O" && j[4].innerHTML=="O" && j[8].innerHTML=="O") || (j[2].innerHTML=="O" && j[4].innerHTML=="O" && j[6].innerHTML=="O")
+        )
+      {
+        para.innerHTML =  "Player 2 is a winner";
+      }
+      else if(a==9)
+      {
+        para.innerHTML  ="Sorry Guys, But this game is tied.\n better luck next time :)"
+      }
+    }
+  </script>
+<body bgcolor="#232323">
+      <div><img src="tic_tac_toe.png" width="100%"></div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <div>
+        <img src="PLAYER_1.png" width="20%" align="left" style="margin-left: 20px">
+        <img src="PLAYER_2.png" width="20%" align="right" style="margin-right: 20px"> 
+        </div>  
+  <table id="dom" width="30%" height="40%" border="1px" align="center" >
+      <tr >
+        <td id="1" onmousemove="change_color(this)" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+        <td id="2" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+        <td id="3" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+      </tr>
+      <tr >
+        <td id="4" onclick="put_value(this)" onmousemove="change_color(this)" onmouseout="color(this)"></td>
+        <td id="5" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+        <td id="6" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+      </tr>
+      <tr >
+        <td id="7" onmousemove="change_color(this)" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+        <td id="8" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+        <td id="9" onmousemove="change_color(this)" onmouseout="color(this)" onclick="put_value(this)"></td>
+      </tr>
+  </table>
+  <p id="p_id"><h1></h1></p>
+
+</body>
+</html>
